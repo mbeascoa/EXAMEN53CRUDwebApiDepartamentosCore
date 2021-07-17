@@ -10,21 +10,32 @@
         android:id="@+id/txt_datos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dale al botón para el alta!!!!"
+        android:text="Dar al botón para consultar o bien dar el Alta!!!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_alta"
+        android:id="@+id/btn_consultar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="leerServicio"
-        android:text="Dar de Alta"
+        android:onClick="leerRegistros"
+        android:text="Consultar Departamentos"
         app:layout_constraintBottom_toTopOf="@+id/txt_datos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_daralta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="insertarRegistro"
+        android:text="Dar de Alta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_datos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

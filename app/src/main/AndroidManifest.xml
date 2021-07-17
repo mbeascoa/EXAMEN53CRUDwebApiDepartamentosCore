@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.53CRUDwebApiDepartamentosCore">
-        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+        <activity android:name=".Detalle_departamento"></activity>
+        <activity android:name=".Listado_registros" />
+        <activity android:name=".Alta_registro" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
