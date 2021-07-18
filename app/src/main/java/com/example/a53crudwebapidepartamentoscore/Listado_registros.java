@@ -179,13 +179,13 @@ public class Listado_registros extends AppCompatActivity {
             Intent i = new Intent(this, Listado_registros.class);
             startActivity(i);
 
-        }else if (id== R.id.item_alta_registro)
-        {
+        }else if (id== R.id.item_alta_registro) {
             Intent i = new Intent(this, Alta_registro.class);
             startActivity(i);
-
-        }else if (id== R.id.item_navegar)
-        {
+        } else if( id== R.id.item_signup){
+            Intent i = new Intent(this, SignUp_Registro.class);
+            startActivity(i);
+        }else if (id== R.id.item_navegar){
             accion = new Intent("android.intent.action.VIEW", Uri.parse("http://developer.android.com"));
             startActivity(accion);
         }
