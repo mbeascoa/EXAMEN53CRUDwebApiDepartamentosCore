@@ -6,23 +6,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    Button botonleer, botonalta;
+    ImageButton botonleer, botonalta;
     TextView txtdatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.txtdatos = (TextView) findViewById(R.id.txt_datos);
-        this.botonleer = (Button) findViewById(R.id.btn_daralta);
-        this.botonalta = (Button) findViewById(R.id.btn_daralta);
+        this.txtdatos = (TextView) findViewById(R.id.txExamenAndroid);
+        this.botonleer = (ImageButton) findViewById(R.id.button_topleft);
+        this.botonalta = (ImageButton) findViewById(R.id.button_downleft);
     }
-
 
 
     public void insertarRegistro (View view){
