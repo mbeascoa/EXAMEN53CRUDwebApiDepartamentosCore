@@ -22,9 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 public class Listado_registros extends AppCompatActivity {
@@ -151,4 +155,44 @@ public class Listado_registros extends AppCompatActivity {
 
     }
 
+    // 06 método  para infrar el menu superior
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_navegacion, menu);
+        return true;
     }
+
+    //07 método para gestionar el item seleccionado
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        int id = item.getItemId();
+
+        Intent accion;
+
+        if (id== R.id.item_consultar)
+        {
+            Intent i = new Intent(this, Listado_registros.class);
+            startActivity(i);
+
+        }else if (id== R.id.item_alta_registro)
+        {
+            Intent i = new Intent(this, Alta_registro.class);
+            startActivity(i);
+
+        }else if (id== R.id.item_navegar)
+        {
+            accion = new Intent("android.intent.action.VIEW", Uri.parse("http://developer.android.com"));
+            startActivity(accion);
+        }
+
+        return true;
+
+    }
+
+
+}

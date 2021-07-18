@@ -17,7 +17,7 @@
         android:paddingRight="6dp"
         android:paddingBottom="16dp"
         android:text="Número :"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/et_Numero_Alta"
@@ -28,7 +28,7 @@
         android:hint="Introduzca el número"
         android:inputType="number"
         android:padding="6dp"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_Nombre_Alta"

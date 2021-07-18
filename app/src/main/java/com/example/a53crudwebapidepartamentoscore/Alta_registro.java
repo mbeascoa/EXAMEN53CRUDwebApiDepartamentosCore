@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -64,10 +67,8 @@ public class Alta_registro extends AppCompatActivity {
                     if (!objetoValidar.isEmail(mail)){
                         Toast.makeText(this, "Introduzca un correo válido , por favor", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(this, "Insertando Registros", Toast.LENGTH_LONG).show();
-                        String url = "https://webapidepartamentos20210716114825.azurewebsites.net/api/Departamentos";
-                        new HttpAsyncTask().execute(url);
-                    }
+                        mostrarDialogoConfirmacion(view);
+                        }
 
                 }
             }
@@ -121,5 +122,41 @@ public class Alta_registro extends AppCompatActivity {
     //04
     public void cerrarVentana(View view) {
         finish();
+    }
+
+    //05
+    public void mostrarDialogoConfirmacion(View view) {
+        DialogoConfirmacion confirmacion  = new DialogoConfirmacion();
+        confirmacion .show(getFragmentManager(), "Cuadro confirmación");
+    }
+
+    //06
+    public void accionAceptar() {
+
+        String url = "https://webapidepartamentos20210716114825.azurewebsites.net/api/Departamentos";
+        new HttpAsyncTask().execute(url);
+        mensajePersonalizado("Insertando Registro, gracias");
+    }
+
+    //07
+    public void accionCancelar() {
+        mensajePersonalizado("Cancelando Envio");
+    }
+
+    //08 creación del mensaje personalizado Toast según sea aceptado o cancelado
+
+    public void mensajePersonalizado(String opcion) {
+        Toast mensaje = new Toast(getApplicationContext());
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.capa_toast,
+                (ViewGroup) findViewById(R.id.lytLayout));
+
+        TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
+        txtMsg.setText(opcion);
+
+        mensaje.setDuration(Toast.LENGTH_SHORT);
+        mensaje.setView(layout);
+        mensaje.show();
     }
 }

@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
@@ -20,26 +23,32 @@ public class Adaptador  extends RecyclerView.Adapter<Adaptador.ViewHolder>{
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_simple_nombredepartamento,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_datos_cardview,parent,false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String nombredept= listaDepartamentos.get(position).getNombre();
-        holder.txtNombreDepartamento.setText(nombredept);
+        String numerod= listaDepartamentos.get(position).getNumero();
+        holder.tvNumeroDep.setText(numerod);
 
-        holder.txtNombreDepartamento.setOnClickListener(new View.OnClickListener(){
+        String nombred= listaDepartamentos.get(position).getNombre();
+        holder.tvNombreDep.setText(nombred);
+
+        String localidadd = listaDepartamentos.get(position).getLocalidad();
+        holder.tvLocalidadDep.setText(localidadd);
+
+        holder.cvRelleno.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 posicionseleccionada = position;
 
                 if (posicionseleccionada == position) {
-                    holder.txtNombreDepartamento.setTextColor(Color.RED);
+                    holder.tvNombreDep.setTextColor(Color.RED);
 
 
                 } else {
-                    holder.txtNombreDepartamento.setTextColor(Color.DKGRAY);
+                    holder.tvNombreDep.setTextColor(Color.DKGRAY);
                 }
                 notifyDataSetChanged();
                 //Notificamos cambios para que el contenedr se entere y refresque los datos
@@ -57,10 +66,15 @@ public class Adaptador  extends RecyclerView.Adapter<Adaptador.ViewHolder>{
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView txtNombreDepartamento;
+        private TextView tvNombreDep, tvNumeroDep, tvLocalidadDep;
+        private CardView cvRelleno;
         public ViewHolder(View v){
             super(v);
-            txtNombreDepartamento=(TextView) v.findViewById(R.id.tv_Nombre_Departamento);
+            tvNumeroDep=(TextView) v.findViewById(R.id.tv_Numero_CardView);
+            tvNombreDep =(TextView) v.findViewById(R.id.tv_Nombre_CardView);
+            tvLocalidadDep = (TextView) v.findViewById(R.id.tv_Localidad_CardView);
+            cvRelleno = (CardView) v.findViewById(R.id.card_datos);
+
         }
     }
 }
