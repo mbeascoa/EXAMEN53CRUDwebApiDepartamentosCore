@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.53CRUDwebApiDepartamentosCore">
-        <activity android:name=".SignUp_Registro"></activity>
+        <activity android:name=".Buscarporid"></activity>
+        <activity android:name=".SignUp_Registro" />
         <activity android:name=".Detalle_departamento" />
         <activity android:name=".Listado_registros" />
         <activity android:name=".Alta_registro" />

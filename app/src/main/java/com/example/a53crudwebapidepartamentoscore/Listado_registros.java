@@ -186,13 +186,16 @@ public class Listado_registros extends AppCompatActivity {
             Intent i = new Intent(this, SignUp_Registro.class);
             startActivity(i);
         }else if (id== R.id.item_navegar){
-            accion = new Intent("android.intent.action.VIEW", Uri.parse("http://developer.android.com"));
+
+            //accion = new Intent("android.intent.action.VIEW", Uri.parse("http://developer.android.com"));
+            accion = new Intent(this, Buscarporid.class);
             startActivity(accion);
         }
-
         return true;
+    }
+
+
 
     }
 
 
-}

@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
         // gestionamos el boton navegar
         this.botonnavegar.setOnClickListener(new OnClickListener()  {
             public void onClick(View v) {
-                navegar();
+                //navegar();
+                Intent i = new Intent(MainActivity.this, Buscarporid.class );
+                startActivity(i);
             }
 
         });
@@ -112,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
             registrosingup();
          }else if (id== R.id.item_navegar)
         {
-            accion = new Intent("android.intent.action.VIEW", Uri.parse("http://developer.android.com"));
+            //accion = new Intent("android.intent.action.VIEW", Uri.parse("http://developer.android.com"));
+            accion = new Intent(this, Buscarporid.class);
             startActivity(accion);
         }
 
